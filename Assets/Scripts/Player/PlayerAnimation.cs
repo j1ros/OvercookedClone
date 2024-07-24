@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Overcooked
+namespace Overcooked.Player
 {
     [RequireComponent(typeof(PlayerMovement))]
     public class PlayerAnimation : MonoBehaviour
