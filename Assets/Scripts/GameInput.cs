@@ -10,6 +10,14 @@ namespace Overcooked
         {
             _playerInputActions = new PlayerInputActions();
             _playerInputActions.Player.Enable();
+
+            _playerInputActions.Player.Interapt.performed += Interact;
+        }
+
+        private void OnDestroy()
+        {
+            _playerInputActions.Player.Interapt.performed -= Interact;
+            _playerInputActions.Dispose();
         }
 
         public Vector2 GetMovementVectorNormilized()
@@ -18,6 +26,11 @@ namespace Overcooked
 
             inputVector = inputVector.normalized;
             return inputVector;
+        }
+
+        private void Interact(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            EventManager.TriggerEvent(EventType.Interapt, null);
         }
     }
 }

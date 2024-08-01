@@ -2,11 +2,13 @@ using UnityEngine;
 
 namespace Overcooked.Player
 {
+    [RequireComponent(typeof(CapsuleCollider))]
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private GameInput _gameInput;
+        [SerializeField] private CapsuleCollider _playerCollider;
         [HideInInspector] public bool IsWalking = false;
 
         private void Update()
@@ -23,8 +25,8 @@ namespace Overcooked.Player
             Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
             float moveDistance = _speed * Time.deltaTime;
-            float playerRadius = .7f;
-            float playerHeight = 2f;
+            float playerRadius = _playerCollider.radius;
+            float playerHeight = _playerCollider.height;
 
             bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
