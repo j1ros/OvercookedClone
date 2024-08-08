@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Overcooked.Counter;
+using Overcooked.InteractivObject;
 using UnityEngine;
 
 namespace Overcooked
@@ -9,12 +10,15 @@ namespace Overcooked
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private GameInput _gameInput;
         [SerializeField] private float _interaptDistance;
+        [SerializeField] private Transform _placeForInteractiveObj;
         private Vector3 _lastInteraptVector;
         private BaseCounter _selectedCounter;
+        private InteractiveObject _interactiveObject;
 
         private void Awake()
         {
             EventManager.StartListening(EventType.Interapt, Interapt);
+            // EventManager.StartListening(EventType.PickUpInteractiveObject, PickUpInteractiveObject);
         }
 
         private void Update()
@@ -25,6 +29,7 @@ namespace Overcooked
         private void OnDestroy()
         {
             EventManager.StopListening(EventType.Interapt, Interapt);
+            // EventManager.StopListening(EventType.PickUpInteractiveObject, PickUpInteractiveObject);
         }
 
         private void HandleInterapt()
@@ -70,8 +75,22 @@ namespace Overcooked
             }
             else
             {
-                _selectedCounter.Interapt();
+                _interactiveObject = _selectedCounter.Interapt(_interactiveObject);
+                if (_interactiveObject != null)
+                {
+                    TakeInHand(_interactiveObject);
+                }
             }
         }
+
+        private void TakeInHand(InteractiveObject interactiveObject)
+        {
+            interactiveObject.gameObject.transform.SetParent(_placeForInteractiveObj, false);
+        }
+
+        // private void PickUpInteractiveObject(Dictionary<string, object> message)
+        // {
+
+        // }
     }
 }

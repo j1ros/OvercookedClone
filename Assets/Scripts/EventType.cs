@@ -3,6 +3,7 @@ namespace Overcooked
     public enum EventType
     {
         Interapt,
-        SelectCounter
+        SelectCounter,
+        // PickUpInteractiveObject
     }
 }

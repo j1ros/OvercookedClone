@@ -1,4 +1,6 @@
+using Overcooked.InteractivObject;
+
 public interface IInterapt
 {
-    public void Interapt();
+    public InteractiveObject Interapt(InteractiveObject interactiveObj);
 }
