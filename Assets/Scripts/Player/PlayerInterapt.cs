@@ -7,13 +7,20 @@ namespace Overcooked
 {
     public class PlayerInterapt : MonoBehaviour
     {
-        [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private LayerMask _layerMaskCounter;
+        [SerializeField] private LayerMask _layerMaskInteractiveObject;
         [SerializeField] private GameInput _gameInput;
         [SerializeField] private float _interaptDistance;
         [SerializeField] private Transform _placeForInteractiveObj;
+        [SerializeField] private Transform _playerInteraptTransform;
+        [SerializeField] private Vector3 _halfExtents;
+        private InteractiveObject _selectedInteractiveObject;
         private Vector3 _lastInteraptVector;
         private BaseCounter _selectedCounter;
         private InteractiveObject _interactiveObject;
+        public Vector3 LastInteraptVector => _lastInteraptVector;
+        public BaseCounter SelectedCounter => _selectedCounter;
+        public InteractiveObject InteractiveObject => _interactiveObject;
 
         private void Awake()
         {
@@ -36,55 +43,87 @@ namespace Overcooked
         {
             Vector2 inputVector = _gameInput.GetMovementVectorNormilized();
             Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+            bool counterIsFind = false;
 
             if (moveDir != Vector3.zero)
                 _lastInteraptVector = moveDir;
 
-            if (Physics.Raycast(transform.position, _lastInteraptVector, out RaycastHit raycastHit, _interaptDistance, _layerMask))
-                if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
+            if (Physics.BoxCast(_playerInteraptTransform.position, _halfExtents, _lastInteraptVector, out RaycastHit raycastHitCounter, Quaternion.identity, _interaptDistance, _layerMaskCounter))
+                if (raycastHitCounter.transform.TryGetComponent(out BaseCounter baseCounter))
                 {
+                    counterIsFind = true;
                     if (baseCounter != _selectedCounter)
-                    {
                         SetSelectedCounter(baseCounter);
-                    }
                 }
                 else
                 {
                     SetSelectedCounter(null);
                 }
             else
-            {
                 SetSelectedCounter(null);
-            }
+            if (Physics.BoxCast(_playerInteraptTransform.position, _halfExtents, _lastInteraptVector, out RaycastHit raycastHitInteractiveObj, Quaternion.identity, _interaptDistance, _layerMaskInteractiveObject)
+                && !counterIsFind)
+                if (raycastHitInteractiveObj.transform.TryGetComponent(out InteractiveObject interactiveObject))
+                {
+                    if (interactiveObject != _selectedInteractiveObject)
+                        SetSelectedInteractiveObject(interactiveObject);
+                }
+                else
+                {
+                    SetSelectedInteractiveObject(null);
+                }
+            else
+                SetSelectedInteractiveObject(null);
         }
 
         private void SetSelectedCounter(BaseCounter counter)
         {
-            if (counter != _selectedCounter)
+            _selectedCounter = counter;
+            EventManager.TriggerEvent(EventType.SelectCounter, new Dictionary<string, object> { { "counter", _selectedCounter } });
+        }
+
+        private void SetSelectedInteractiveObject(InteractiveObject interactiveObject)
+        {
+            if (interactiveObject != _selectedInteractiveObject)
             {
-                _selectedCounter = counter;
-                EventManager.TriggerEvent(EventType.SelectCounter, new Dictionary<string, object> { { "counter", _selectedCounter } });
+                _selectedInteractiveObject = interactiveObject;
+                EventManager.TriggerEvent(EventType.SelectInteractiveObject, new Dictionary<string, object> { { "interactiveObject", _selectedInteractiveObject } });
             }
         }
 
         private void Interapt(Dictionary<string, object> message)
         {
-            if (_selectedCounter == null)
+            if (_selectedInteractiveObject != null)
             {
-                //drop item
+                SetInteractiveObject(_selectedInteractiveObject);
+                TakeInHand(_interactiveObject);
+                return;
             }
-            else
+
+            if (_selectedCounter != null)
             {
-                _interactiveObject = _selectedCounter.Interapt(_interactiveObject);
+                SetInteractiveObject(_selectedCounter.Interapt(_interactiveObject));
                 if (_interactiveObject != null)
                 {
                     TakeInHand(_interactiveObject);
                 }
+                return;
             }
+            if (_interactiveObject != null)
+            {
+                //drop on ground
+                return;
+            }
+        }
+
+        public void SetInteractiveObject(InteractiveObject interactiveObject)
+        {
+            _interactiveObject = interactiveObject;
         }
 
         private void TakeInHand(InteractiveObject interactiveObject)
         {
+            interactiveObject.PickUp();
             interactiveObject.gameObject.transform.SetParent(_placeForInteractiveObj, false);
         }
 

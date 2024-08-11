@@ -4,6 +4,8 @@ namespace Overcooked
     {
         Interapt,
         SelectCounter,
+        SelectInteractiveObject,
+        Action
         // PickUpInteractiveObject
     }
 }

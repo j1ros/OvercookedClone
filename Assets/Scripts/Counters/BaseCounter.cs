@@ -57,8 +57,15 @@ namespace Overcooked.Counter
             return interactiveObj;
         }
 
+        public virtual bool CanAction()
+        {
+            return false;
+        }
+
         protected void PlaceInteractiveObj(InteractiveObject interactiveObj)
         {
+            if (interactiveObj == null)
+                return;
             interactiveObj.gameObject.transform.SetParent(_placeForInteractiveObj, false);
         }
     }
