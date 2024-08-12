@@ -5,6 +5,7 @@ namespace Overcooked
         Interapt,
         SelectCounter,
         SelectInteractiveObject,
-        Action
+        Action,
+        Abort
     }
 }

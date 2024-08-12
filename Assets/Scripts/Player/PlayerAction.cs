@@ -12,20 +12,20 @@ namespace Overcooked.Player
         private void Awake()
         {
             EventManager.StartListening(EventType.Action, Action);
+            EventManager.StartListening(EventType.Abort, Abort);
         }
 
         private void OnDestroy()
         {
             EventManager.StopListening(EventType.Action, Action);
+            EventManager.StopListening(EventType.Abort, Abort);
         }
 
         private void Action(Dictionary<EventMessageType, object> message)
         {
             if (_playerInterapt.InteractiveObject != null && _playerInterapt.InteractiveObject.CanThrow)
             {
-                _playerInterapt.InteractiveObject.gameObject.transform.SetParent(_parentForThrowingInteractiveObj, true);
-                _playerInterapt.InteractiveObject.Throw(_playerRaycastHandle.LastInteraptVector);
-                _playerInterapt.SetInteractiveObject(null);
+                Throw(_playerRaycastHandle.LastInteraptVector);
                 return;
             }
 
@@ -35,6 +35,22 @@ namespace Overcooked.Player
                 Debug.Log("action counter");
                 return;
             }
+        }
+
+        private void Abort(Dictionary<EventMessageType, object> message)
+        {
+            if (_playerInterapt.InteractiveObject == null)
+                return;
+
+            Throw(Vector3.zero);
+            return;
+        }
+
+        private void Throw(Vector3 moveDir)
+        {
+            _playerInterapt.InteractiveObject.gameObject.transform.SetParent(_parentForThrowingInteractiveObj, true);
+            _playerInterapt.InteractiveObject.Throw(moveDir);
+            _playerInterapt.SetInteractiveObject(null);
         }
     }
 }

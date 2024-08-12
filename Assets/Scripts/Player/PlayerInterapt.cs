@@ -62,7 +62,7 @@ namespace Overcooked
             }
             if (_interactiveObject != null)
             {
-                //drop on ground
+                EventManager.TriggerEvent(EventType.Abort, new Dictionary<EventMessageType, object> { });
                 return;
             }
         }
