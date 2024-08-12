@@ -6,7 +6,7 @@ namespace Overcooked
 {
     public class EventManager : MonoBehaviour
     {
-        private Dictionary<EventType, Action<Dictionary<string, object>>> eventDictionary;
+        private Dictionary<EventType, Action<Dictionary<EventMessageType, object>>> eventDictionary;
 
         private static EventManager eventManager;
 
@@ -36,13 +36,13 @@ namespace Overcooked
         {
             if (eventDictionary == null)
             {
-                eventDictionary = new Dictionary<EventType, Action<Dictionary<string, object>>>();
+                eventDictionary = new Dictionary<EventType, Action<Dictionary<EventMessageType, object>>>();
             }
         }
 
-        public static void StartListening(EventType eventName, Action<Dictionary<string, object>> listener)
+        public static void StartListening(EventType eventName, Action<Dictionary<EventMessageType, object>> listener)
         {
-            Action<Dictionary<string, object>> thisEvent;
+            Action<Dictionary<EventMessageType, object>> thisEvent;
 
             if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
@@ -56,10 +56,10 @@ namespace Overcooked
             }
         }
 
-        public static void StopListening(EventType eventName, Action<Dictionary<string, object>> listener)
+        public static void StopListening(EventType eventName, Action<Dictionary<EventMessageType, object>> listener)
         {
             if (eventManager == null) return;
-            Action<Dictionary<string, object>> thisEvent;
+            Action<Dictionary<EventMessageType, object>> thisEvent;
             if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
                 thisEvent -= listener;
@@ -67,9 +67,9 @@ namespace Overcooked
             }
         }
 
-        public static void TriggerEvent(EventType eventName, Dictionary<string, object> message)
+        public static void TriggerEvent(EventType eventName, Dictionary<EventMessageType, object> message)
         {
-            Action<Dictionary<string, object>> thisEvent = null;
+            Action<Dictionary<EventMessageType, object>> thisEvent = null;
             if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
                 thisEvent.Invoke(message);

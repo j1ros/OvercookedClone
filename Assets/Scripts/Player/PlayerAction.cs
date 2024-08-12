@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Overcooked.InteractivObject;
 
 namespace Overcooked.Player
 {
@@ -8,6 +7,7 @@ namespace Overcooked.Player
     {
         [SerializeField] private PlayerInterapt _playerInterapt;
         [SerializeField] private Transform _parentForThrowingInteractiveObj;
+        [SerializeField] private PlayerRaycastHandle _playerRaycastHandle;
 
         private void Awake()
         {
@@ -19,12 +19,12 @@ namespace Overcooked.Player
             EventManager.StopListening(EventType.Action, Action);
         }
 
-        private void Action(Dictionary<string, object> message)
+        private void Action(Dictionary<EventMessageType, object> message)
         {
             if (_playerInterapt.InteractiveObject != null && _playerInterapt.InteractiveObject.CanThrow)
             {
                 _playerInterapt.InteractiveObject.gameObject.transform.SetParent(_parentForThrowingInteractiveObj, true);
-                _playerInterapt.InteractiveObject.Throw(_playerInterapt.LastInteraptVector);
+                _playerInterapt.InteractiveObject.Throw(_playerRaycastHandle.LastInteraptVector);
                 _playerInterapt.SetInteractiveObject(null);
                 return;
             }

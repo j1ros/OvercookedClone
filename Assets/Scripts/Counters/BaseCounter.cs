@@ -4,7 +4,7 @@ using Overcooked.InteractivObject;
 
 namespace Overcooked.Counter
 {
-    public class BaseCounter : MonoBehaviour, IInterapt
+    public class BaseCounter : MonoBehaviour, ICounter
     {
         [SerializeField] protected GameObject _counterSelected;
         [SerializeField] private Transform _placeForInteractiveObj;
@@ -20,9 +20,9 @@ namespace Overcooked.Counter
             EventManager.StopListening(EventType.SelectCounter, SelectCounter);
         }
 
-        private void SelectCounter(Dictionary<string, object> message)
+        private void SelectCounter(Dictionary<EventMessageType, object> message)
         {
-            if ((message["counter"] as BaseCounter) == this)
+            if ((message[EventMessageType.Counter] as BaseCounter) == this)
             {
                 _counterSelected.SetActive(true);
             }

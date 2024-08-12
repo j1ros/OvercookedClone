@@ -6,6 +6,5 @@ namespace Overcooked
         SelectCounter,
         SelectInteractiveObject,
         Action
-        // PickUpInteractiveObject
     }
 }

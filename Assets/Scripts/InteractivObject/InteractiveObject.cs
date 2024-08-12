@@ -22,9 +22,9 @@ namespace Overcooked.InteractivObject
             EventManager.StopListening(EventType.SelectInteractiveObject, SelectInteractiveObject);
         }
 
-        private void SelectInteractiveObject(Dictionary<string, object> message)
+        private void SelectInteractiveObject(Dictionary<EventMessageType, object> message)
         {
-            if (message["interactiveObject"] as InteractiveObject == this)
+            if (message[EventMessageType.InteractiveObject] as InteractiveObject == this)
             {
                 _interactiveObjectSelected.SetActive(true);
             }
