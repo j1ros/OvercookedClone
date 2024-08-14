@@ -243,6 +243,7 @@ MonoBehaviour:
   _interactiveObjectToCreate: {fileID: 11400000, guid: d01ed8373664faf46a2ff9ceb3ff674d,
     type: 2}
   _spriteRenderer: {fileID: 4841286013473667211}
+  _objectManager: {fileID: 0}
 --- !u!65 &6843787455911134044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -262,8 +263,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4720802, y: 1.4889619, z: 1.3281038}
-  m_Center: {x: 0.0035556555, y: 0.6141982, z: -0.027294517}
+  m_Size: {x: 0.89579576, y: 0.8550458, z: 0.8620503}
+  m_Center: {x: 0.009442598, y: 0.41916376, z: -0.03913331}
 --- !u!1 &5002500225448208783
 GameObject:
   m_ObjectHideFlags: 0

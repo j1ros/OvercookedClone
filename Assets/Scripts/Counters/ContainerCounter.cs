@@ -1,4 +1,5 @@
 using Overcooked.Data;
+using Overcooked.General;
 using Overcooked.InteractivObject;
 using UnityEngine;
 
@@ -20,9 +21,7 @@ namespace Overcooked.Counter
             {
                 if (_interactiveObject == null)
                 {
-                    //-- rework need instantiate interactive obj
-                    Transform newInteractiveObjTransform = Instantiate(_interactiveObjectToCreate.Prefab);
-                    InteractiveObject newInteractiveObj = newInteractiveObjTransform.GetComponent<InteractiveObject>();
+                    InteractiveObject newInteractiveObj = ObjectManager.Instance.InstantiateInteractiveObject(_interactiveObjectToCreate);
                     return newInteractiveObj;
                 }
                 else

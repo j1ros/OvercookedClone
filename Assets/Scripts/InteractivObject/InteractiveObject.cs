@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Overcooked.Data;
 using UnityEngine;
 
 namespace Overcooked.InteractivObject
@@ -10,6 +11,8 @@ namespace Overcooked.InteractivObject
         [SerializeField] private float _throwForce;
         [SerializeField] private Collider _collider;
         [SerializeField] private GameObject _interactiveObjectSelected;
+        private InteractiveSO _interactiveSO;
+        public InteractiveSO InteractiveSO => _interactiveSO;
         public bool CanThrow => _canThrow;
 
         private void Awake()
@@ -32,6 +35,11 @@ namespace Overcooked.InteractivObject
             {
                 _interactiveObjectSelected.SetActive(false);
             }
+        }
+
+        public void SetSO(InteractiveSO interactiveSO)
+        {
+            _interactiveSO = interactiveSO;
         }
 
         public void Throw(Vector3 moveDir)

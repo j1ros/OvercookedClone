@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Overcooked.Counter;
 
 namespace Overcooked.Player
 {
@@ -8,11 +9,24 @@ namespace Overcooked.Player
         [SerializeField] private PlayerInterapt _playerInterapt;
         [SerializeField] private Transform _parentForThrowingInteractiveObj;
         [SerializeField] private PlayerRaycastHandle _playerRaycastHandle;
+        [SerializeField] private PlayerMovement _playerMovement;
+        private BaseCounter _lastActionCounter;
+        private bool _playerInAction = false;
 
         private void Awake()
         {
             EventManager.StartListening(EventType.Action, Action);
             EventManager.StartListening(EventType.Abort, Abort);
+        }
+
+        private void Update()
+        {
+            if (_playerMovement.IsWalking && _playerInAction)
+            {
+                _lastActionCounter.StopAction();
+                _lastActionCounter = null;
+                _playerInAction = false;
+            }
         }
 
         private void OnDestroy()
@@ -31,8 +45,9 @@ namespace Overcooked.Player
 
             if (_playerInterapt.SelectedCounter != null && _playerInterapt.SelectedCounter.CanAction())
             {
-                // do action with counter if can
-                Debug.Log("action counter");
+                _playerInAction = true;
+                _lastActionCounter = _playerInterapt.SelectedCounter;
+                _playerInterapt.SelectedCounter.Action();
                 return;
             }
         }

@@ -6,5 +6,7 @@ namespace Overcooked.Counter
     {
         public InteractiveObject Interapt(InteractiveObject interactiveObj);
         public bool CanAction();
+        public void Action();
+        public void StopAction();
     }
 }

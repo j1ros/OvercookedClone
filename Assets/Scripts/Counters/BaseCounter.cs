@@ -36,7 +36,6 @@ namespace Overcooked.Counter
         {
             if (_interactiveObject == null)
             {
-                _interactiveObject = interactiveObj;
                 PlaceInteractiveObj(interactiveObj);
                 return null;
             }
@@ -66,7 +65,18 @@ namespace Overcooked.Counter
         {
             if (interactiveObj == null)
                 return;
+            _interactiveObject = interactiveObj;
             interactiveObj.gameObject.transform.SetParent(_placeForInteractiveObj, false);
+        }
+
+        public virtual void Action()
+        {
+            return;
+        }
+
+        public virtual void StopAction()
+        {
+            return;
         }
     }
 }
