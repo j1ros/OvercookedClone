@@ -48,12 +48,20 @@ namespace Overcooked.Counter
                     _interactiveObject = null;
                     return returnedInteractiveObj;
                 }
-                //-- если в руках тарелка а на столе ингридиент
                 else if (_interactiveObject is IUnited)
                 {
                     if ((_interactiveObject as IUnited).AddInteractiveObject(interactiveObj.InteractiveSO))
                     {
                         ObjectManager.Instance.DestroyInteractiveObject(interactiveObj);
+                        return null;
+                    }
+                }
+                else if (interactiveObj is IUnited)
+                {
+                    if ((interactiveObj as IUnited).AddInteractiveObject(_interactiveObject.InteractiveSO))
+                    {
+                        ObjectManager.Instance.DestroyInteractiveObject(_interactiveObject);
+                        PlaceInteractiveObj(interactiveObj);
                         return null;
                     }
                 }
