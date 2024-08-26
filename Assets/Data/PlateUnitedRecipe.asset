@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189df8462e594184f822cb139792e4c9, type: 3}
+  m_Name: PlateUnitedRecipe
+  m_EditorClassIdentifier: 
+  _unitedRecipe:
+  - _startInteractiveObj:
+    - {fileID: 11400000, guid: 2f68793a0070fe442a3c5d4fdd4fcfe7, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: 2f68793a0070fe442a3c5d4fdd4fcfe7,
+      type: 2}
+  - _startInteractiveObj:
+    - {fileID: 11400000, guid: 72f9396dd598f734c882529632330529, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: 72f9396dd598f734c882529632330529,
+      type: 2}
+  - _startInteractiveObj:
+    - {fileID: 11400000, guid: 6e1fcf92d68e5744ea0862ee33b651c7, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: 6e1fcf92d68e5744ea0862ee33b651c7,
+      type: 2}
+  - _startInteractiveObj:
+    - {fileID: 11400000, guid: 72f9396dd598f734c882529632330529, type: 2}
+    - {fileID: 11400000, guid: 2f68793a0070fe442a3c5d4fdd4fcfe7, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: 980b896bcdb92944fab403d32fa748b6,
+      type: 2}
+  - _startInteractiveObj:
+    - {fileID: 11400000, guid: 6e1fcf92d68e5744ea0862ee33b651c7, type: 2}
+    - {fileID: 11400000, guid: 2f68793a0070fe442a3c5d4fdd4fcfe7, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: 0384f183db7775a42aeab8d0663c795b,
+      type: 2}
+  - _startInteractiveObj:
+    - {fileID: 11400000, guid: 6e1fcf92d68e5744ea0862ee33b651c7, type: 2}
+    - {fileID: 11400000, guid: 72f9396dd598f734c882529632330529, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: 3b12b98d2f056a94f8d3ef2d6e0640e7,
+      type: 2}
+  - _startInteractiveObj:
+    - {fileID: 11400000, guid: 6e1fcf92d68e5744ea0862ee33b651c7, type: 2}
+    - {fileID: 11400000, guid: 72f9396dd598f734c882529632330529, type: 2}
+    - {fileID: 11400000, guid: 2f68793a0070fe442a3c5d4fdd4fcfe7, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: 50ba4a0283c4e9544a60d35b8436ff53,
+      type: 2}

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Overcooked.InteractivObject;
+using Overcooked.General;
 
 namespace Overcooked.Counter
 {
@@ -47,9 +48,14 @@ namespace Overcooked.Counter
                     _interactiveObject = null;
                     return returnedInteractiveObj;
                 }
-                else
+                //-- если в руках тарелка а на столе ингридиент
+                else if (_interactiveObject is IUnited)
                 {
-                    //-- check can add interactiveObj to _interactiveObj if recipe confirm this
+                    if ((_interactiveObject as IUnited).AddInteractiveObject(interactiveObj.InteractiveSO))
+                    {
+                        ObjectManager.Instance.DestroyInteractiveObject(interactiveObj);
+                        return null;
+                    }
                 }
             }
 

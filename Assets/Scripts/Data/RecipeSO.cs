@@ -12,6 +12,5 @@ namespace Overcooked.Data
         public float TimeToReady => _timeToReady;
         public InteractiveSO StartInteractiveObject => _startInteractiveObject;
         public InteractiveSO ResultInteractiveObj => _resultInteractiveObj;
-
     }
 }
