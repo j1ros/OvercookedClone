@@ -38,10 +38,7 @@ namespace Overcooked.InteractivObject
                 ChangeVisual(index);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         private bool CheckUnitedInteractiveObj(int index)

@@ -8,7 +8,7 @@ namespace Overcooked.Counter
     public class BaseCounter : MonoBehaviour, ICounter
     {
         [SerializeField] protected GameObject _counterSelected;
-        [SerializeField] private Transform _placeForInteractiveObj;
+        [SerializeField] protected Transform _placeForInteractiveObj;
         protected InteractiveObject _interactiveObject;
 
         private void Awake()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8756962652894583000}
   - component: {fileID: 9205206227927327678}
   - component: {fileID: 356167980309387765}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MeatPattyUncooked_Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 2403739888511640184}
   - component: {fileID: 8066472704897548387}
   - component: {fileID: 4067284817737680856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Selected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,6 +271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Uncooked meat patty
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02a24f0f7eb1b624ab903663ee9a248c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
