@@ -55,6 +55,12 @@ namespace Overcooked.Counter
                         ObjectManager.Instance.DestroyInteractiveObject(interactiveObj);
                         return null;
                     }
+
+                    if((_interactiveObject as IUnited).AddInteractiveObject((interactiveObj as IUnited)?.PlacedInteractiveObject?.InteractiveSO))
+                    {
+                        (interactiveObj as IUnited).Clear();
+                        return interactiveObj;
+                    }
                 }
                 else if (interactiveObj is IUnited)
                 {

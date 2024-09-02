@@ -61,7 +61,7 @@ namespace Overcooked.Counter
                 {
                     if ((_interactiveObject as FryingPanInteractiveObject).AddInteractiveObject((interactiveObj as FryingPanInteractiveObject).PlacedInteractiveObject.InteractiveSO))
                     {
-                        (interactiveObj as FryingPanInteractiveObject).ClearStove();
+                        (interactiveObj as FryingPanInteractiveObject).Clear();
                         StartRecipe();
                         return interactiveObj;
                     }
@@ -107,7 +107,7 @@ namespace Overcooked.Counter
             {
                 //-- start burning
             }
-            (_interactiveObject as FryingPanInteractiveObject).ClearStove();
+            (_interactiveObject as FryingPanInteractiveObject).Clear();
             (_interactiveObject as FryingPanInteractiveObject).AddInteractiveObject(_currentRecipe.ResultInteractiveObj);
             StopRecipe();
             StartRecipe();

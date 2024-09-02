@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitedRecipe:
   - _startInteractiveObj:
+    - {fileID: 11400000, guid: f11a64e11e47aff45b8e381b5e056597, type: 2}
+    _endInteractiveObj: {fileID: 11400000, guid: f11a64e11e47aff45b8e381b5e056597,
+      type: 2}
+  - _startInteractiveObj:
     - {fileID: 11400000, guid: 2f68793a0070fe442a3c5d4fdd4fcfe7, type: 2}
     _endInteractiveObj: {fileID: 11400000, guid: 2f68793a0070fe442a3c5d4fdd4fcfe7,
       type: 2}

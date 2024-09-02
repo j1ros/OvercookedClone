@@ -10,8 +10,9 @@ namespace Overcooked.InteractivObject
     {
         [SerializeField] private UnitedRecipesSO _unitedRecipes;
         [SerializeField] private Transform _placeInteractiveObj;
-        private InteractiveObject _placedInteractiveObject;
         private List<InteractiveSO> _unitedInteractiveObj = new List<InteractiveSO>();
+        private InteractiveObject _placedInteractiveObject;
+        public InteractiveObject PlacedInteractiveObject => _placedInteractiveObject;
 
         private bool CanAddInteractiveObject(InteractiveSO interactiveObj, out int index)
         {
@@ -28,6 +29,13 @@ namespace Overcooked.InteractivObject
                 }
             }
             return false;
+        }
+
+        public void Clear()
+        {
+            ObjectManager.Instance.DestroyInteractiveObject(_placedInteractiveObject);
+            _placedInteractiveObject = null;
+            _unitedInteractiveObj.Clear();
         }
 
         public bool AddInteractiveObject(InteractiveSO interactiveObj)
@@ -54,6 +62,7 @@ namespace Overcooked.InteractivObject
         {
             InteractiveObject newObj = ObjectManager.Instance.InstantiateInteractiveObject(_unitedRecipes.UnitedRecipe[index].EndInteractiveObj);
             newObj.gameObject.transform.SetParent(_placeInteractiveObj, false);
+            Destroy(newObj.gameObject.GetComponent<Rigidbody>());
             _placedInteractiveObject = newObj;
         }
     }

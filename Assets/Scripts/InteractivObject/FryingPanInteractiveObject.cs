@@ -21,7 +21,7 @@ namespace Overcooked.InteractivObject
             return false;
         }
 
-        public void ClearStove()
+        public void Clear()
         {
             ObjectManager.Instance.DestroyInteractiveObject(_placedInteractiveObject);
             _placedInteractiveObject = null;
@@ -44,7 +44,7 @@ namespace Overcooked.InteractivObject
         {
             if (interactiveObj == null || _placedInteractiveObject != null)
                 return false;
-            
+
             for (int i = 0; i < _possibleInteractiveObj.Recipes.Count; i++)
             {
                 if (_possibleInteractiveObj.Recipes[i].StartInteractiveObject == interactiveObj || _possibleInteractiveObj.Recipes[i].ResultInteractiveObj == interactiveObj)
@@ -60,6 +60,7 @@ namespace Overcooked.InteractivObject
             InteractiveObject newObj = ObjectManager.Instance.InstantiateInteractiveObject(interactiveObj);
             newObj.gameObject.transform.SetParent(_placeInteractiveObj, false);
             _placedInteractiveObject = newObj;
+            Destroy(newObj.gameObject.GetComponent<Rigidbody>());
         }
     }
 }
