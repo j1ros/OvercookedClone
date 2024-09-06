@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a8957852da670428dab51bbe83f845, type: 3}
   m_Name: MeatBurning
   m_EditorClassIdentifier: 
-  _timeToReady: 1
+  _timeToReady: 2
   _startInteractiveObject: {fileID: 11400000, guid: f11a64e11e47aff45b8e381b5e056597,
     type: 2}
   _resultInteractiveObj: {fileID: 11400000, guid: a2de2562b718eda4987d737ccc1a7838,

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a8957852da670428dab51bbe83f845, type: 3}
   m_Name: CabbageSlice
   m_EditorClassIdentifier: 
-  _timeToReady: 1
+  _timeToReady: 2
   _startInteractiveObject: {fileID: 11400000, guid: e87f72c674bb69140ad86fc82ac898aa,
     type: 2}
   _resultInteractiveObj: {fileID: 11400000, guid: 108ab61963ed2834292d8ecae0f14102,
     type: 2}
+  _burnAtTheEnd: 0

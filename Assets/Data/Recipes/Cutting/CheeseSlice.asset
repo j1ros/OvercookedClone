@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a8957852da670428dab51bbe83f845, type: 3}
   m_Name: CheeseSlice
   m_EditorClassIdentifier: 
-  _timeToReady: 1
+  _timeToReady: 2
   _startInteractiveObject: {fileID: 11400000, guid: 2caebf55dc7120d4fbfe0bd0e19be827,
     type: 2}
   _resultInteractiveObj: {fileID: 11400000, guid: 6e1fcf92d68e5744ea0862ee33b651c7,
     type: 2}
+  _burnAtTheEnd: 0
