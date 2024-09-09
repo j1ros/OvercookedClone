@@ -54,6 +54,13 @@ MonoBehaviour:
   _throwForce: 0
   _collider: {fileID: 1949298746694049298}
   _interactiveObjectSelected: {fileID: 6915414622938560569}
+  _drag: 0.6
+  _timeToFall: 0.6
+  _halfExtents: {x: 0.1, y: 0.5, z: 0.5}
+  _interaptDistance: 1
+  _layerMaskCounter:
+    serializedVersion: 2
+    m_Bits: 512
   _unitedRecipes: {fileID: 11400000, guid: bff97cf9c4bfb594eb4d4579a2d1de63, type: 2}
   _placeInteractiveObj: {fileID: 4681206278506895024}
 --- !u!54 &7173186556991487257

@@ -85,6 +85,13 @@ MonoBehaviour:
   _throwForce: 15
   _collider: {fileID: 7183072810902504963}
   _interactiveObjectSelected: {fileID: 783048926443392779}
+  _drag: 0.6
+  _timeToFall: 0.6
+  _halfExtents: {x: 0.1, y: 0.5, z: 0.5}
+  _interaptDistance: 1
+  _layerMaskCounter:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!54 &1204691565221997710
 Rigidbody:
   m_ObjectHideFlags: 0
