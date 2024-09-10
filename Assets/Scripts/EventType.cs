@@ -6,6 +6,9 @@ namespace Overcooked
         SelectCounter,
         SelectInteractiveObject,
         Action,
-        Abort
+        Abort,
+        TimeEnd,
+        AddPoints,
+        TakeAwayPoints
     }
 }

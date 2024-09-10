@@ -3,6 +3,7 @@ namespace Overcooked
     public enum EventMessageType
     {
         Counter,
-        InteractiveObject
+        InteractiveObject,
+        Points
     }
 }
