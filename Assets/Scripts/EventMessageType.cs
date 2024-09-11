@@ -4,6 +4,6 @@ namespace Overcooked
     {
         Counter,
         InteractiveObject,
-        Points
+        Points,
     }
 }

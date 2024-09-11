@@ -9,6 +9,5 @@ namespace Overcooked
         Abort,
         TimeEnd,
         AddPoints,
-        TakeAwayPoints
     }
 }

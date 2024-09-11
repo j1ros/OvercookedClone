@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelTimer: 180
   _possibleRecipes: {fileID: 11400000, guid: 246c20817f7a3dd429b75e3cd59d8ebf, type: 2}
+  _timeOnOrder: 10

@@ -7,6 +7,7 @@ namespace Overcooked.Level
     {
         private TimerUI _timerUI;
         private float _time;
+        public float TimeFromStart => _time;
         [HideInInspector] public float LevelTimer;
 
         private void Start()

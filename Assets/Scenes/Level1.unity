@@ -2145,6 +2145,7 @@ GameObject:
   - component: {fileID: 2139814326}
   - component: {fileID: 2139814327}
   - component: {fileID: 2139814328}
+  - component: {fileID: 2139814329}
   m_Layer: 0
   m_Name: LevelControllers
   m_TagString: Untagged
@@ -2193,6 +2194,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelTimer: 0
+--- !u!114 &2139814329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139814325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87ec43917f1d4846abc11466886ac20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orderUIPrefab: {fileID: 8440306335898433259, guid: d95318cf16120154ba05b9e3a9d2f16b,
+    type: 3}
+  _orderParent: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
