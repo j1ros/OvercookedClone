@@ -13,6 +13,7 @@ namespace Overcooked.InteractivObject
         private List<InteractiveSO> _unitedInteractiveObj = new List<InteractiveSO>();
         private InteractiveObject _placedInteractiveObject;
         public InteractiveObject PlacedInteractiveObject => _placedInteractiveObject;
+        public List<InteractiveSO> UnitedInteractiveObj => _unitedInteractiveObj;
 
         private bool CanAddInteractiveObject(InteractiveSO interactiveObj, out int index)
         {

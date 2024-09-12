@@ -9,5 +9,6 @@ namespace Overcooked
         Abort,
         TimeEnd,
         AddPoints,
+        Delivery
     }
 }

@@ -22,7 +22,7 @@ namespace Overcooked.Level
 
         private void ChangePoints(Dictionary<EventMessageType, object> message)
         {
-            _points += (int)message[EventMessageType.Points];
+            _points += (int)(_levelSO.RewardForOrder * (float)message[EventMessageType.Points]);
             _pointsUI.ChangePoints(_points);
         }
 
