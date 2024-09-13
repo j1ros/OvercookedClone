@@ -44,7 +44,7 @@ namespace Overcooked.Level
             for (int i = 0; i < _orders.Count; i++)
             {
                 IEnumerable<InteractiveSO> commonInteractiveObj = deliveryOrder.Intersect(_orders[i].OrderData.StartInteractiveObj);
-                if (deliveryOrder.Count == commonInteractiveObj.Count())
+                if (deliveryOrder.Count == commonInteractiveObj.Count() && _orders[i].OrderData.StartInteractiveObj.Count == commonInteractiveObj.Count())
                 {
                     CompleteOrder(i);
                     return;

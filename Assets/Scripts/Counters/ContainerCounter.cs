@@ -41,7 +41,27 @@ namespace Overcooked.Counter
                 }
                 else
                 {
+                    if (interactiveObj is IUnited)
+                    {
+                        if ((interactiveObj as IUnited).AddInteractiveObject(_interactiveObject.InteractiveSO))
+                        {
+                            ObjectManager.Instance.DestroyInteractiveObject(_interactiveObject);
+                            _interactiveObject = null;
+                            return interactiveObj;
+                        }
+                        return interactiveObj;
+                    }
+                    if (_interactiveObject is IUnited)
+                    {
+                        if ((_interactiveObject as IUnited).AddInteractiveObject(interactiveObj.InteractiveSO))
+                        {
+                            ObjectManager.Instance.DestroyInteractiveObject(interactiveObj);
+                            return null;
+                        }
+                        return interactiveObj;
+                    }
                     return interactiveObj;
+
                 }
             }
         }
