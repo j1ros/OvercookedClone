@@ -1369,6 +1369,8 @@ MonoBehaviour:
   _rotateSpeed: 10
   _gameInput: {fileID: 1623089173}
   _playerCollider: {fileID: 1463378679}
+  _dashDistance: 7
+  _dashTime: 0.3
   IsWalking: 0
 --- !u!114 &1463378678
 MonoBehaviour:
@@ -1402,10 +1404,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5912572
-  m_Height: 2.174895
+  m_Radius: 0.6559237
+  m_Height: 2.1748953
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: -0.0037554502, y: 1, z: -0.009946823}
 --- !u!114 &1463378680
 MonoBehaviour:
   m_ObjectHideFlags: 0
