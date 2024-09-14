@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Overcooked.Counter
 {
-    public class CuttingCounter : BaseCounter
+    public class CuttingCounter : ClearCounter
     {
         [SerializeField] private ListRecipeSO _listRecipes;
         [SerializeField] private Canvas _canvas;

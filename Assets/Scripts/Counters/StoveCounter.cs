@@ -6,7 +6,7 @@ using Overcooked.Data;
 
 namespace Overcooked.Counter
 {
-    public class StoveCounter : BaseCounter
+    public class StoveCounter : ClearCounter
     {
         [SerializeField] private Canvas _canvas;
         [SerializeField] private ProgressBar _progressBar;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Overcooked.Counter
 {
-    public class ContainerCounter : BaseCounter
+    public class ContainerCounter : ClearCounter
     {
         [SerializeField] private InteractiveSO _interactiveObjectToCreate;
         [SerializeField] private SpriteRenderer _spriteRenderer;

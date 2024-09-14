@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Overcooked.Counter
 {
-    public class PlatesCounter : BaseCounter
+    public class PlatesCounter : ClearCounter
     {
         [SerializeField] private float _timeToRespPlate;
         [SerializeField] private InteractiveSO _plateSO;
