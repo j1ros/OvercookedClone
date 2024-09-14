@@ -11,12 +11,12 @@ namespace Overcooked.Counter
         [SerializeField] protected Transform _placeForInteractiveObj;
         protected InteractiveObject _interactiveObject;
 
-        private void Awake()
+        protected void Awake()
         {
             EventManager.StartListening(EventType.SelectCounter, SelectCounter);
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             EventManager.StopListening(EventType.SelectCounter, SelectCounter);
         }
@@ -56,7 +56,7 @@ namespace Overcooked.Counter
                         return null;
                     }
 
-                    if((_interactiveObject as IUnited).AddInteractiveObject((interactiveObj as IUnited)?.PlacedInteractiveObject?.InteractiveSO))
+                    if ((_interactiveObject as IUnited).AddInteractiveObject((interactiveObj as IUnited)?.PlacedInteractiveObject?.InteractiveSO))
                     {
                         (interactiveObj as IUnited).Clear();
                         return interactiveObj;
@@ -81,7 +81,7 @@ namespace Overcooked.Counter
             return false;
         }
 
-        protected void PlaceInteractiveObj(InteractiveObject interactiveObj)
+        protected virtual void PlaceInteractiveObj(InteractiveObject interactiveObj)
         {
             if (interactiveObj == null)
                 return;
