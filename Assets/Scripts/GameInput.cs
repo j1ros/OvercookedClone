@@ -14,6 +14,7 @@ namespace Overcooked
             _playerInputActions.Player.Interapt.performed += Interact;
             _playerInputActions.Player.Action.performed += Action;
             _playerInputActions.Player.Dash.performed += Dash;
+            _playerInputActions.Player.Menu.performed += Menu;
         }
 
         private void OnDestroy()
@@ -21,6 +22,7 @@ namespace Overcooked
             _playerInputActions.Player.Interapt.performed -= Interact;
             _playerInputActions.Player.Action.performed -= Action;
             _playerInputActions.Player.Dash.performed -= Dash;
+            _playerInputActions.Player.Menu.performed -= Menu;
             _playerInputActions.Dispose();
         }
 
@@ -45,6 +47,11 @@ namespace Overcooked
         private void Dash(UnityEngine.InputSystem.InputAction.CallbackContext obj)
         {
             EventManager.TriggerEvent(EventType.Dash, null);
+        }
+
+        private void Menu(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            EventManager.TriggerEvent(EventType.Menu, null);
         }
     }
 }

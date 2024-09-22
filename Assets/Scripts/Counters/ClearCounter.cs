@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Overcooked.InteractivObject;
 using Overcooked.General;
@@ -9,6 +8,7 @@ namespace Overcooked.Counter
     public class ClearCounter : BaseCounter
     {
         [SerializeField] protected Transform _placeForInteractiveObj;
+        protected InteractiveObject _interactiveObject;
 
         protected virtual void PlaceInteractiveObj(InteractiveObject interactiveObj)
         {

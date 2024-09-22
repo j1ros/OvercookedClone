@@ -67,7 +67,7 @@ namespace Overcooked.Player
 
         private void Dash(Dictionary<EventMessageType, object> data)
         {
-            if (_isDash)
+            if (_isDash || Time.timeScale == 0)
                 return;
             _isDash = true;
             _dashStartPos = transform.position;

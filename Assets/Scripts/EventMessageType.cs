@@ -5,6 +5,8 @@ namespace Overcooked
         Counter,
         InteractiveObject,
         Points,
-        UnitedObjects
+        UnitedObjects,
+        PointStars,
+        SceneName
     }
 }

@@ -32,7 +32,7 @@ namespace Overcooked
             }
         }
 
-        void Init()
+        private void Init()
         {
             if (eventDictionary == null)
             {

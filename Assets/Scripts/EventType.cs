@@ -10,6 +10,10 @@ namespace Overcooked
         Abort,
         TimeEnd,
         AddPoints,
-        Delivery
+        Delivery,
+        Pause,
+        Unpause,
+        Menu,
+        LoadScene
     }
 }

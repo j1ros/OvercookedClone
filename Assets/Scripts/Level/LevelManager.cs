@@ -10,6 +10,7 @@ namespace Overcooked.Level
         private LevelTime _levelTime;
         private PointsUI _pointsUI;
         private int _points = 0;
+        public int Points => _points;
         public LevelSO LevelSO => _levelSO;
 
         private void Awake()

@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Overcooked.InteractivObject;
-using Overcooked.General;
 
 namespace Overcooked.Counter
 {
     public class BaseCounter : MonoBehaviour, ICounter
     {
         [SerializeField] protected GameObject _counterSelected;
-        protected InteractiveObject _interactiveObject;
 
         protected void Awake()
         {
