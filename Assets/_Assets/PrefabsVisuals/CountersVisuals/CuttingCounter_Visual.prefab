@@ -80,7 +80,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4589716710238282922}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d87dfd3351d974345a720c6f6cefbd37, type: 2}
   m_CullingMode: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   _listRecipes: {fileID: 11400000, guid: c4bce067d33259d44a6befb4b103166b, type: 2}
   _canvas: {fileID: 5155193210795047102}
   _progressBar: {fileID: 4654434899949729406}
+  _animator: {fileID: 2831942792982843299}
 --- !u!65 &5752480463966498074
 BoxCollider:
   m_ObjectHideFlags: 0

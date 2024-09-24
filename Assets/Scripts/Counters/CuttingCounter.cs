@@ -11,6 +11,7 @@ namespace Overcooked.Counter
         [SerializeField] private ListRecipeSO _listRecipes;
         [SerializeField] private Canvas _canvas;
         [SerializeField] private ProgressBar _progressBar;
+        [SerializeField] private Animator _animator;
         private RecipeSO _currentRecipe;
         private float _timer = 0f;
         private bool _isAction = false;
@@ -33,8 +34,8 @@ namespace Overcooked.Counter
             _progressBar.SetProgress(_timer / _currentRecipe.TimeToReady);
             if (_timer >= _currentRecipe.TimeToReady)
             {
-                _isAction = false;
                 FinishRecipe();
+                StopAction();
                 _timer = 0f;
             }
         }
@@ -66,11 +67,13 @@ namespace Overcooked.Counter
             _progressBar.gameObject.SetActive(true);
             _isProgress = true;
             _isAction = true;
+            _animator.SetBool("Cut", true);
         }
 
         public override void StopAction()
         {
             _isAction = false;
+            _animator.SetBool("Cut", false);
         }
 
         public override InteractiveObject Interapt(InteractiveObject interactiveObj)
