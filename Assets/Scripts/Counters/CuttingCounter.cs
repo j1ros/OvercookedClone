@@ -29,7 +29,7 @@ namespace Overcooked.Counter
         {
             if (!_isAction)
                 return;
-            //-- do anim
+                
             _timer += Time.deltaTime;
             _progressBar.SetProgress(_timer / _currentRecipe.TimeToReady);
             if (_timer >= _currentRecipe.TimeToReady)

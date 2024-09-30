@@ -129,9 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6706cbe2e331b7f45be49c91ae38df3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelPointUI: {fileID: 0}
   _levelData: {fileID: 0}
-  _canvas: {fileID: 0}
+  _gameData: {fileID: 11400000, guid: 042b1108e68492c4e9795ecdda469274, type: 2}
 --- !u!135 &6768723066292043789
 SphereCollider:
   m_ObjectHideFlags: 0

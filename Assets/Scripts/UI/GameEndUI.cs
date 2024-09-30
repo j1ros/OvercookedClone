@@ -33,7 +33,6 @@ namespace Overcooked.UI
 
         public void GameEnd()
         {
-            //-- save lvl record 
             EventManager.TriggerEvent(EventType.LoadScene, new Dictionary<EventMessageType, object> { { EventMessageType.SceneName, "GlobalMap" } });
         }
     }

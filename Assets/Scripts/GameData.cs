@@ -51,5 +51,22 @@ namespace Overcooked
                 _levelRecords[allLevels[i]] = 0;
             }
         }
+
+        public int GetStars()
+        {
+            int stars = 0;
+            foreach (LevelSO level in _levelRecords.Keys)
+            {
+                for (int i = 0; i < level.PointsForStars.Count; i++)
+                {
+                    if (_levelRecords[level] >= level.PointsForStars[i])
+                    {
+                        stars++;
+                    }
+                }
+            }
+
+            return stars;
+        }
     }
 }

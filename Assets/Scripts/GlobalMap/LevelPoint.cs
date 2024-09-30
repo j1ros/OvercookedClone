@@ -7,6 +7,7 @@ namespace Overcooked.GlobalMap
     public class LevelPoint : MonoBehaviour
     {
         [SerializeField] private LevelSO _levelData;
+        [SerializeField] private GameData _gameData;
         private bool _isTarget = false;
 
         private void Awake()
@@ -23,8 +24,9 @@ namespace Overcooked.GlobalMap
         {
             if (!_isTarget)
                 return;
-            //-- проверить на кол-во звезд
-            EventManager.TriggerEvent(EventType.LoadScene, new Dictionary<EventMessageType, object> { { EventMessageType.SceneName, _levelData.NameScene } });
+                
+            if (_gameData.GetStars() >= _levelData.StarForUnlock)
+                EventManager.TriggerEvent(EventType.LoadScene, new Dictionary<EventMessageType, object> { { EventMessageType.SceneName, _levelData.NameScene } });
         }
 
         private void OnTriggerEnter(Collider other)
