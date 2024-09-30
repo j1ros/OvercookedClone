@@ -28,12 +28,11 @@ namespace Overcooked
 
         public void LevelEnd(LevelSO levelSO, int points)
         {
-            //-- вернуть обратно когда протестирую с положительными очками
-            // if (_levelRecords[levelSO] < points)
-            // {
+            if (_levelRecords[levelSO] < points)
+            {
                 _levelRecords[levelSO] = points;
                 EventManager.TriggerEvent(EventType.Save, null);
-            // }
+            }
         }
 
         public void ChangeLevelRecords(Dictionary<LevelSO, int> levelRecors)

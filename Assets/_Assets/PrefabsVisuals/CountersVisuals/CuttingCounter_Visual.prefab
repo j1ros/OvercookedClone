@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterSelected: {fileID: 3970205758568285858}
+  _startedPlate: 0
+  _plate: {fileID: 11400000, guid: d51b24fc5c58efd4a84fc6d0ffcf4fe1, type: 2}
   _placeForInteractiveObj: {fileID: 7979693475845266378}
   _listRecipes: {fileID: 11400000, guid: c4bce067d33259d44a6befb4b103166b, type: 2}
   _canvas: {fileID: 5155193210795047102}

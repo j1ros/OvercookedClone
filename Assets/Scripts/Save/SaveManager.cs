@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Overcooked.Level;
 using UnityEngine;
 
@@ -12,9 +11,13 @@ namespace Overcooked.Save
         private void Awake()
         {
             DontDestroyOnLoad(this);
-            _gameData.LoadLevelFromAssets();
             EventManager.StartListening(EventType.Save, SaveData);
             EventManager.StartListening(EventType.Load, LoadSave);
+        }
+
+        private void Start()
+        {
+            _gameData.LoadLevelFromAssets();
         }
 
         private void OnDestroy()

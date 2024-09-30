@@ -10,8 +10,9 @@ namespace Overcooked.Counter
         [SerializeField] private InteractiveSO _interactiveObjectToCreate;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
-        private void Start()
+        private new void Start()
         {
+            base.Start();
             _spriteRenderer.sprite = _interactiveObjectToCreate.Sprite;
         }
 

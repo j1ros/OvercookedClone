@@ -1,14 +1,26 @@
 using UnityEngine;
 using Overcooked.InteractivObject;
 using Overcooked.General;
+using Overcooked.Data;
 
 
 namespace Overcooked.Counter
 {
     public class ClearCounter : BaseCounter
     {
+        [SerializeField] protected bool _startedPlate;
+        [SerializeField] protected InteractiveSO _plate;
         [SerializeField] protected Transform _placeForInteractiveObj;
         protected InteractiveObject _interactiveObject;
+
+        protected void Start()
+        {
+            if (_startedPlate)
+            {
+                InteractiveObject startedPlate = ObjectManager.Instance.InstantiateInteractiveObject(_plate);
+                PlaceInteractiveObj(startedPlate);
+            }
+        }
 
         protected virtual void PlaceInteractiveObj(InteractiveObject interactiveObj)
         {

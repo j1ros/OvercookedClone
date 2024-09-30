@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterSelected: {fileID: 5002500225448208783}
+  _startedPlate: 0
+  _plate: {fileID: 11400000, guid: d51b24fc5c58efd4a84fc6d0ffcf4fe1, type: 2}
   _placeForInteractiveObj: {fileID: 4336714574355513647}
   _interactiveObjectToCreate: {fileID: 11400000, guid: d01ed8373664faf46a2ff9ceb3ff674d,
     type: 2}

@@ -17,7 +17,7 @@ namespace Overcooked.Counter
         private bool _isAction = false;
         private bool _isProgress = false;
 
-        private void Start()
+        private new void Start()
         {
             _canvas.worldCamera = Camera.main;
             Vector3 cameraPos = Camera.main.transform.position;

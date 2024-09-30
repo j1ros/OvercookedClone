@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterSelected: {fileID: 1252886292920711809}
+  _startedPlate: 0
+  _plate: {fileID: 11400000, guid: d51b24fc5c58efd4a84fc6d0ffcf4fe1, type: 2}
   _placeForInteractiveObj: {fileID: 1937527407525703629}
 --- !u!1 &8489276541531669327
 GameObject:

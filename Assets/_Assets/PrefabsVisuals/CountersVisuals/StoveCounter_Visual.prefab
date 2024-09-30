@@ -359,6 +359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterSelected: {fileID: 4123803840993567990}
+  _startedPlate: 0
+  _plate: {fileID: 11400000, guid: d51b24fc5c58efd4a84fc6d0ffcf4fe1, type: 2}
   _placeForInteractiveObj: {fileID: 2883636788171226}
   _canvas: {fileID: 8228962618901126032}
   _progressBar: {fileID: 8443711570840606032}

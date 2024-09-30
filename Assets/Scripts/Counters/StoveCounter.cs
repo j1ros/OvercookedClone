@@ -15,7 +15,7 @@ namespace Overcooked.Counter
         private float _timer = 0f;
         private bool _isCooking = false;
 
-        private void Start()
+        private new void Start()
         {
             InteractiveObject newFryingPan = ObjectManager.Instance.InstantiateInteractiveObject(_fryingPanInteractiveSO);
             newFryingPan.gameObject.transform.SetParent(_placeForInteractiveObj, false);
