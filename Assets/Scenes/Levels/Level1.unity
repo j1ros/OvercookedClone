@@ -2411,6 +2411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelSO: {fileID: 11400000, guid: 5aa6a4adb001daf43ba8650d2804226f, type: 2}
+  _gameData: {fileID: 11400000, guid: 042b1108e68492c4e9795ecdda469274, type: 2}
 --- !u!114 &2139814328
 MonoBehaviour:
   m_ObjectHideFlags: 0

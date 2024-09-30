@@ -7,6 +7,7 @@ namespace Overcooked
         Points,
         UnitedObjects,
         PointStars,
-        SceneName
+        SceneName,
+        LevelSO
     }
 }

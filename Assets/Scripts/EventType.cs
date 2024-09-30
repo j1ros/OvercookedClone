@@ -14,6 +14,9 @@ namespace Overcooked
         Pause,
         Unpause,
         Menu,
-        LoadScene
+        LoadScene,
+        LevelPointUI,
+        Save,
+        Load
     }
 }

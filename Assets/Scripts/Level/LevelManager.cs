@@ -7,6 +7,7 @@ namespace Overcooked.Level
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private LevelSO _levelSO;
+        [SerializeField] private GameData _gameData;
         private LevelTime _levelTime;
         private PointsUI _pointsUI;
         private int _points = 0;
@@ -19,6 +20,11 @@ namespace Overcooked.Level
             _levelTime.LevelTimer = _levelSO.LevelTimer;
             _pointsUI = FindObjectOfType<PointsUI>();
             EventManager.StartListening(EventType.AddPoints, ChangePoints);
+        }
+
+        public void TimeEnd()
+        {
+            _gameData.LevelEnd(_levelSO, _points);
         }
 
         private void ChangePoints(Dictionary<EventMessageType, object> message)

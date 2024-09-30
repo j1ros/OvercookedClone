@@ -72,7 +72,7 @@ namespace Overcooked
             Action<Dictionary<EventMessageType, object>> thisEvent = null;
             if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
-                thisEvent.Invoke(message);
+                thisEvent?.Invoke(message);
             }
         }
     }

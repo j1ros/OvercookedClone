@@ -7,6 +7,7 @@ namespace Overcooked.Level
     [CreateAssetMenu(menuName = "LevelData")]
     public class LevelSO : ScriptableObject
     {
+        [SerializeField] private int _id;
         [SerializeField] private string _nameScene;
         [SerializeField] private float _levelTimer;
         [SerializeField] private UnitedRecipesSO _possibleRecipes;
@@ -15,6 +16,7 @@ namespace Overcooked.Level
         [SerializeField] private List<int> _pointsForStars;
         [SerializeField] private int _starForUnlock;
 
+        public int ID => _id;
         public string NameScene => _nameScene;
         public float LevelTimer => _levelTimer;
         public UnitedRecipesSO PossibleRecipes => _possibleRecipes;

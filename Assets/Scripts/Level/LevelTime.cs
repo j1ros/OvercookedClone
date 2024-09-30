@@ -9,11 +9,13 @@ namespace Overcooked.Level
         [SerializeField] private LevelManager _levelManager;
         private TimerUI _timerUI;
         private float _time;
+        private bool _isSubmitEvent;
         public float TimeFromStart => _time;
         [HideInInspector] public float LevelTimer;
 
         private void Start()
         {
+            _isSubmitEvent = false;
             _timerUI = FindObjectOfType<TimerUI>();
         }
 
@@ -22,10 +24,12 @@ namespace Overcooked.Level
             _time += Time.deltaTime;
             _timerUI.ChangeTime(LevelTimer - _time);
 
-            if (LevelTimer <= _time)
+            if (LevelTimer <= _time && !_isSubmitEvent)
             {
                 EventManager.TriggerEvent(EventType.TimeEnd, new Dictionary<EventMessageType, object> { { EventMessageType.PointStars, _levelManager.LevelSO.PointsForStars },
                     { EventMessageType.Points,_levelManager.Points} });
+                _levelManager.TimeEnd();
+                _isSubmitEvent = true;
             }
         }
     }
