@@ -1,42 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Overcooked.UI
 {
-    public class GameMenuUI : MonoBehaviour
+    public class GameMenuUI : BaseGameMenuUI
     {
-        [SerializeField] private GameObject _menu;
-
-        private void Awake()
-        {
-            EventManager.StartListening(EventType.Menu, OpenCloseMenu);
-        }
-
-        private void OnDestroy()
-        {
-            EventManager.StopListening(EventType.Menu, OpenCloseMenu);
-        }
-
-        private void OpenCloseMenu(Dictionary<EventMessageType, object> data)
-        {
-            if (_menu.gameObject.activeSelf)
-            {
-                Resume();
-            }
-            else
-            {
-                EventManager.TriggerEvent(EventType.Pause, null);
-                _menu.gameObject.SetActive(true);
-            }
-        }
-
-        public void Resume()
-        {
-            EventManager.TriggerEvent(EventType.Unpause, null);
-            _menu.gameObject.SetActive(false);
-        }
-
         public void Restart()
         {
             string levelName = "";
@@ -48,7 +16,7 @@ namespace Overcooked.UI
             EventManager.TriggerEvent(EventType.LoadScene, new Dictionary<EventMessageType, object> { { EventMessageType.SceneName, levelName } });
         }
 
-        public void ExitFromLevel()
+        public override void ExitFromLevel()
         {
             EventManager.TriggerEvent(EventType.LoadScene, new Dictionary<EventMessageType, object> { { EventMessageType.SceneName, "GlobalMap" } });
         }
