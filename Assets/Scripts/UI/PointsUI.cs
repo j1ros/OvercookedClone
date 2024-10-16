@@ -9,7 +9,7 @@ namespace Overcooked.UI
 
         public void ChangePoints(int points)
         {
-            _text.text = "Points: " + points.ToString();
+            _text.text = "Очки: " + points.ToString();
         }
     }
 }

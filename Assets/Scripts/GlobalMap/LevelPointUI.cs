@@ -10,6 +10,7 @@ namespace Overcooked.GlobalMap
         [SerializeField] private GameObject _ui;
         [SerializeField] private TextMeshProUGUI _levelNameText;
         [SerializeField] private TextMeshProUGUI _levelRecordText;
+        [SerializeField] private TextMeshProUGUI _requireStars;
         [SerializeField] private GameData _gameData;
 
         private void Awake()
@@ -37,12 +38,23 @@ namespace Overcooked.GlobalMap
         private void HideUI()
         {
             _ui.SetActive(false);
+            _requireStars.gameObject.SetActive(false);
+            _levelRecordText.gameObject.SetActive(false);
         }
 
         private void ShowUI(LevelSO levelData)
         {
             _levelNameText.text = levelData.NameScene;
-            _levelRecordText.text = _gameData.LevelRecords[levelData].ToString();
+            if (_gameData.GetStars() >= levelData.StarForUnlock)
+            {
+                _levelRecordText.gameObject.SetActive(true);
+                _levelRecordText.text = _gameData.LevelRecords[levelData].ToString();
+            }
+            else
+            {
+                _requireStars.gameObject.SetActive(true);
+                _requireStars.text = "Необходимо " + levelData.StarForUnlock + " для открытия";
+            }
             _ui.SetActive(true);
         }
     }
